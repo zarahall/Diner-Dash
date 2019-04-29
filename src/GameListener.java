@@ -4,9 +4,11 @@ public class GameListener implements DrawListener {
     private Game game;
     Customer customerClicked;
     Table tableClicked;
+    private boolean orderTaken;
 
     public GameListener(Game game){
         this.game = game;
+        orderTaken = false;
     }
     @Override
     public void keyPressed(int keycode) {
@@ -49,10 +51,22 @@ public class GameListener implements DrawListener {
         customerClicked = game.selectCustomerAt(x, y);
         tableClicked = game.selectTableAt(x, y);
 
-        if(tableClicked.getReadyToOrder()){
-            tableClicked.startFoodTimer();
+        if(tableClicked!= null){
+            if(tableClicked.getReadyToOrder()){
+                System.out.println("h");
+                tableClicked.startFoodTimer();
+                orderTaken = true;
+            }
         }
 
+    }
+
+    public boolean isOrderTaken(){
+        return orderTaken;
+    }
+
+    public void setOrderTaken(boolean b){
+        orderTaken = b;
     }
 
 }

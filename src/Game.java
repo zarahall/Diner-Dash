@@ -10,6 +10,7 @@ public class Game {
     private Draw window2;
     private long startTime;
     private long elapsedTime;
+    private GameListener listener;
 
     public Game(){
         window = new Draw("Diner Dash");
@@ -20,7 +21,7 @@ public class Game {
         menuItemList = new ArrayList<>();
         setMenuItemList();
         customersList = new ArrayList<>();
-        GameListener listener = new GameListener(this);
+        listener = new GameListener(this);
         window.addListener(listener);
         startTime = System.currentTimeMillis();
         elapsedTime = 0;
@@ -118,6 +119,11 @@ public class Game {
                 cust1.updateTime();
                 if (cust1.isReadyForOrder()) {
                     cust1.getTable().readyToOrder();
+                    if(game.listener.isOrderTaken()){
+                        System.out.println("h");
+                       // cust1.orderFood();
+                        game.listener.setOrderTaken(false);
+                    }
                     cust1.orderFood();
                 }
             }
