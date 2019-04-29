@@ -15,13 +15,14 @@ public class Game {
         window.setYscale(0,100);
         tableList = new ArrayList<>();
         menuItemList = new ArrayList<>();
+        customersList = new ArrayList<>();
         GameListener listener = new GameListener(this);
         window.addListener(listener);
 
     }
 
     public Draw getWindow() { return window; }
-    
+
     public void setMenuItemList() {
         menuItemList.add(new MenuItem(10.15, "Hamburger"));
         menuItemList.add(new MenuItem(6.99, "French Fries"));
