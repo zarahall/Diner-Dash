@@ -34,6 +34,20 @@ public class Table {
         return y;
     }
 
+    public boolean containsPoint(double x, double y) {
+        if(x < this.x+(width/2.0) && x > this.x-(width/2.0)){
+            if(y < this.y+(width/2.0) && y > this.y-(width/2.0)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+
     public void draw() {
         game.getWindow().setPenColor(Color.gray);
         game.getWindow().filledRectangle(x, y, width/2.0, height/2.0);
