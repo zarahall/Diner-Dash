@@ -1,6 +1,6 @@
 
 /**
- * A customer who come into the restaurant
+ * A customer who comes into the restaurant
  */
 public class Customer {
     //location

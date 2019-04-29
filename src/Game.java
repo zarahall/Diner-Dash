@@ -94,7 +94,6 @@ public class Game {
         Game game = new Game();
         Board board = new Board(game);
         board.drawBoard();
-
         Customer cust1 = new Customer("green.png", game,15,15,15,20);
         cust1.drawInLine(15,20);
         game.add(cust1);
