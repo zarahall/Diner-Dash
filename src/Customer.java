@@ -15,6 +15,7 @@ public class Customer {
     //time that the customer enters the restaurant
     private long startTime;
     private long elapsedTime;
+    private long orderStartTime;
     private long orderTime;
     private boolean readyForOrder;
 
@@ -61,11 +62,11 @@ public class Customer {
     public void setTable(Table table) {
         this.table = table;
         drawaAtTable();
-        orderTime = System.currentTimeMillis();
+        orderStartTime = System.currentTimeMillis();
     }
 
     public boolean isReadyForOrder(){
-        orderTime = (System.currentTimeMillis() - orderTime)/1000;
+        orderTime = (System.currentTimeMillis() - orderStartTime)/1000;
         if(orderTime >= 5){
             readyForOrder = true;
         }
@@ -105,9 +106,4 @@ public class Customer {
         tip = charge * .2 * happiness / 5;
         tip = (double) Math.round(tip * 100) / 100;
     }
-    
-    public double getOrder() { return tip; }
-    
-    public double getTip() { return charge; }
-    
-    }
+}
