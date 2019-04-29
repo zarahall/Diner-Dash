@@ -17,5 +17,8 @@ public class Kitchen {
         game.getWindow().filledRectangle(10, 95, 9, 3);
         game.getWindow().setPenColor(Color.black);
         game.getWindow().text(10, 95, "KITCHEN");
+        game.getWindow().setPenColor(131, 23, 23);
+        game.getWindow().filledRectangle(25, 40, 1, 34);
+        //game.getWindow().line(20, 70, 20, 20);
     }
 }
