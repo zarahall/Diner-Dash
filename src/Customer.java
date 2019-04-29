@@ -22,7 +22,7 @@ public class Customer {
         pictureFileName = filename;
         this.width = width;
         this.height = heigth;
-        this.happiness = 50;
+        this.happiness = 100;
         startTime = System.currentTimeMillis();
         elapsedTime = 0;
     }
