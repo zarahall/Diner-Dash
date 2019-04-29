@@ -45,12 +45,15 @@ public class Customer {
     public void setTable(Table table) { this.table = table; }
     
     public void drawInLine(int xLoc, int yLoc) {
-        game.getWindow().picture(xLoc, yLoc, pictureFileName);
+        x = xLoc;
+        y = yLoc;
+        game.getWindow().picture(x, y, pictureFileName);
     }
     
     public void drawaAtTable() {
-        int xTableLoc = table.getX();
-        int yTableLoc = table.getY();
+        x = table.getX();
+        y = table.getY();
+        game.getWindow().picture(x, y, pictureFileName);
     }
     public void order(){
 
