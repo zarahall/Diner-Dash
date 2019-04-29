@@ -8,7 +8,6 @@ public class Game {
     private ArrayList<MenuItem> menuItemList;
     private ArrayList<Customer> customersList;
     private Draw window2;
-    private Customer customerClicked;
 
     public Game(){
         window = new Draw("Diner Dash");
@@ -20,7 +19,6 @@ public class Game {
         customersList = new ArrayList<>();
         GameListener listener = new GameListener(this);
         window.addListener(listener);
-        customerClicked = null;
 
     }
 
@@ -35,7 +33,7 @@ public class Game {
         menuItemList.add(new MenuItem(7.15, "Cheese Pizza Slice"));
     }
 
-    public boolean selectTableAt(double x, double y) {
+    public Table selectTableAt(double x, double y) {
         Table tableClicked = null;
         for (Table t : tableList) {
             if (t.containsPoint(x, y)) {
@@ -52,12 +50,12 @@ public class Game {
                 }
             }
         }
-        return (tableClicked != null);
+        return tableClicked;
     }
 
 
-    public boolean selectCustomerAt(double x, double y) {
-        customerClicked = null;
+    public Customer selectCustomerAt(double x, double y) {
+        Customer customerClicked = null;
         for (Customer c : customersList) {
             if (c.containsPoint(x, y)) {
                 c.setSelected(true);
@@ -73,8 +71,10 @@ public class Game {
                 }
             }
         }
-        return (customerClicked != null);
+        return customerClicked;
     }
+
+
 
     /** Adds given portal to this window. */
     public void add(Customer c) { customersList.add(c); }
