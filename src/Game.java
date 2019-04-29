@@ -66,6 +66,9 @@ public class Game {
         table4.draw();
         game.add(table4);
 
+        Customer cust1 = new Customer("green.png",game,15,15,15,20);
+        cust1.drawInLine(15,20);
+
         //Draw kitchen
         Kitchen kitchen = new Kitchen(game);
         kitchen.draw();

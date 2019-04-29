@@ -15,7 +15,7 @@ public class Customer {
     //time that the customer enters the restaurant
     private long startTime;
     private long elapsedTime;
-    
+
     private Table table;
     private Game game;
 
@@ -41,15 +41,15 @@ public class Customer {
         }
 
     }
-    
+
     public void setTable(Table table) { this.table = table; }
-    
+
     public void drawInLine(int xLoc, int yLoc) {
         x = xLoc;
         y = yLoc;
-        game.getWindow().picture(x, y, pictureFileName);
+        game.getWindow().picture(x, y, pictureFileName, width, height);
     }
-    
+
     public void drawaAtTable() {
         x = table.getX();
         y = table.getY();
