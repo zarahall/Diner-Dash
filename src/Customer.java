@@ -102,7 +102,7 @@ public class Customer {
         table.drawMenu();
     }
     public MenuItem order() {
-        orderIndex = (int) (Math.random() * 6 + 1);
+        orderIndex = (int) (Math.random() * 6 );
         charge = game.getMenuItem(orderIndex).getPrice();
         return game.getMenuItem(orderIndex);
     }
@@ -110,22 +110,22 @@ public class Customer {
     public void orderFood(){
         if(table.updateFoodTime()>=5){
             MenuItem food = order();
-            if(order().getName().equals("Hamburger")){
+            if(food.getName().equals("Hamburger")){
                 table.drawFood("hamburger.png");
             }
-            if(order().getName().equals("French Fries")){
+            if(food.getName().equals("French Fries")){
                 table.drawFood("fries.png");
             }
-            if(order().getName().equals("Key Lime Pie")){
+            if(food.getName().equals("Key Lime Pie")){
                 table.drawFood("keyLimePie.png");
             }
-            if(order().getName().equals("Lemonade")){
+            if(food.getName().equals("Lemonade")){
                 table.drawFood("lemonade.png");
             }
-            if(order().getName().equals("Chicken Caesar Salad")){
+            if(food.getName().equals("Chicken Caesar Salad")){
                 table.drawFood("salad.png");
             }
-            if(order().getName().equals("Cheese Pizza Slice")){
+            if(food.getName().equals("Cheese Pizza Slice")){
                 table.drawFood("pizza.png");
             }
 

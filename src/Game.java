@@ -18,6 +18,7 @@ public class Game {
         window.setYscale(0,100);
         tableList = new ArrayList<>();
         menuItemList = new ArrayList<>();
+        setMenuItemList();
         customersList = new ArrayList<>();
         GameListener listener = new GameListener(this);
         window.addListener(listener);
@@ -117,6 +118,7 @@ public class Game {
                 cust1.updateTime();
                 if (cust1.isReadyForOrder()) {
                     cust1.getTable().readyToOrder();
+                    cust1.orderFood();
                 }
             }
             cust1.updateHappiness();
