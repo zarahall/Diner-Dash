@@ -32,7 +32,6 @@ public class Game {
         table2.draw();
         game.window.show();
 
-
     }
 
 
