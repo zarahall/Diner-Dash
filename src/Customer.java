@@ -52,7 +52,6 @@ public class Customer {
     public void setTable(Table table) {
         this.table = table;
         drawaAtTable();
-
     }
 
     public Table getTable(){ return table;}
@@ -78,7 +77,6 @@ public class Customer {
         y = table.getY();
         game.getWindow().picture(x, y-7, pictureFileName, width, height);
         table.drawMenu();
-        game.getWindow().show();
     }
     public void order(){
         orderIndex = (int) (Math.random() * 6 + 1);
