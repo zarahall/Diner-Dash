@@ -105,4 +105,9 @@ public class Customer {
         tip = charge * .2 * happiness / 5;
         tip = (double) Math.round(tip * 100) / 100;
     }
-}
+    
+    public double getOrder() { return tip; }
+    
+    public double getTip() { return charge; }
+    
+    }
