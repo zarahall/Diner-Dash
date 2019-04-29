@@ -16,7 +16,7 @@ public class Customer {
     private long startTime;
     private long elapsedTime;
     private long orderTime;
-    private boolean readyForOrder
+    private boolean readyForOrder;
 
 
     private double charge;
