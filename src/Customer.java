@@ -93,5 +93,4 @@ public class Customer {
         tip = charge * .2 * happiness / 5;
         tip = (double) Math.round(tip * 100) / 100;
     }
-
 }
