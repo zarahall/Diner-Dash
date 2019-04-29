@@ -15,10 +15,12 @@ public class Customer {
     //time that the customer enters the restaurant
     private long startTime;
     private long elapsedTime;
-    
-    
+    private long orderTime;
+    private boolean readyForOrder
+
+
     private double charge;
-    
+
     private double tip;
 
     private boolean isSelected = false;
@@ -38,6 +40,7 @@ public class Customer {
         startTime = System.currentTimeMillis();
         elapsedTime = 0;
         this.game = game;
+        readyForOrder = false;
     }
 
     public void updateHappiness(){
@@ -58,6 +61,15 @@ public class Customer {
     public void setTable(Table table) {
         this.table = table;
         drawaAtTable();
+        orderTime = System.currentTimeMillis();
+    }
+
+    public boolean isReadyForOrder(){
+        orderTime = (System.currentTimeMillis() - orderTime)/1000;
+        if(orderTime >= 5){
+            readyForOrder = true;
+        }
+        return readyForOrder;
     }
 
     public Table getTable(){ return table;}
@@ -88,7 +100,7 @@ public class Customer {
         orderIndex = (int) (Math.random() * 6 + 1);
         charge = game.getMenuItem(orderIndex).getPrice();
     }
-    
+
     public void calcTip() {
         tip = charge * .2 * happiness / 5;
         tip = (double) Math.round(tip * 100) / 100;
