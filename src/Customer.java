@@ -17,6 +17,8 @@ public class Customer {
     private long elapsedTime;
 
     private boolean isSelected = false;
+    
+    private int orderIndex;
 
     private Table table;
     private Game game;
@@ -68,7 +70,7 @@ public class Customer {
         game.getWindow().picture(x, y, pictureFileName);
     }
     public void order(){
-
+        orderIndex = (int) (Math.random() * 6 + 1);
     }
 
 }
