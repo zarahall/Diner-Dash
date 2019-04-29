@@ -42,6 +42,4 @@ public class Table {
     public void tableText(Table table) {
         game.getWindow().text(table.getX(), table.getY(), num);
     }
-
-
 }
