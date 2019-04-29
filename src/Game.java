@@ -93,7 +93,16 @@ public class Game {
         cust1.drawInLine(15,20);
         game.add(cust1);
 
-        game.window.show();
+        while(true){
+            if(cust1.getTable()!=null){
+                game.window.clear();
+                board.drawBoard();
+                cust1.drawaAtTable();
+            }
+            game.window.show();
+
+        }
+
 
     }
 }

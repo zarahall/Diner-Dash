@@ -17,8 +17,6 @@ public class Customer {
     private long elapsedTime;
 
     private boolean isSelected = false;
-    
-    private int orderIndex;
 
     private Table table;
     private Game game;
@@ -51,8 +49,6 @@ public class Customer {
 
     public void setTable(Table table) {
         this.table = table;
-        drawaAtTable();
-
     }
 
     public void drawInLine(int xLoc, int yLoc) {
@@ -70,16 +66,19 @@ public class Customer {
 
     public void setSelected(boolean selected) { isSelected = selected; }
 
+    public Table getTable(){
+        return table;
+    }
+
 
     public void drawaAtTable() {
         x = table.getX();
         y = table.getY();
         game.getWindow().picture(x, y-7, pictureFileName, width, height);
         table.drawMenu();
-        game.getWindow().show();
     }
     public void order(){
-        orderIndex = (int) (Math.random() * 6 + 1);
+
     }
 
 }
