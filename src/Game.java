@@ -5,7 +5,6 @@ public class Game {
     //window in which the game will take place;
     private Draw window;
     private ArrayList<Table> tableList;
-    private ArrayList<Customer> customersList;
     private ArrayList<MenuItem> menuItemList;
 
     public Game(){
@@ -51,32 +50,9 @@ public class Game {
         return (tableClicked != null);
     }
 
-    public boolean selectCustomerAt(double x, double y) {
-        Customer customerClicked = null;
-        for (Customer c : customersList) {
-            if (c.containsPoint(x, y)) {
-                c.setSelected(true);
-                customerClicked = c;
-                break;
-            }
-        }
-        // If one was clicked, deselect the rest
-        if (customerClicked != null) {
-            for (Customer c : customersList) {
-                if (c != customerClicked) {
-                    c.setSelected(false);
-                }
-            }
-        }
-        return (customerClicked != null);
-    }
-
-
-    /** Adds given cutomer to this window. */
-    public void add(Customer c) { customersList.add(c); }
-
-    /** Adds given table to this window. */
+    /** Adds given portal to this window. */
     public void add(Table t) { tableList.add(t); }
+
 
 
     public static void main(String[] args){
@@ -100,7 +76,6 @@ public class Game {
 
         Customer cust1 = new Customer("green.png",game,15,15,15,20);
         cust1.drawInLine(15,20);
-        game.add(cust1);
 
         //Draw kitchen
         Kitchen kitchen = new Kitchen(game);
