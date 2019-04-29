@@ -98,6 +98,7 @@ public class Game {
                 game.window.clear();
                 board.drawBoard();
                 cust1.drawaAtTable();
+                cust1.updateTime();
             }
             game.window.show();
 

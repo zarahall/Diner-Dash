@@ -45,8 +45,9 @@ public class Customer {
         }
     }
 
-    public void updateTime(){
-        elapsedTime = System.currentTimeMillis() - startTime;
+    public long updateTime(){
+        elapsedTime =( System.currentTimeMillis() - startTime)/1000;
+        return elapsedTime;
     }
 
     public void setTable(Table table) {
