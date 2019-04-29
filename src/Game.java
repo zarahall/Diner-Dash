@@ -13,13 +13,21 @@ public class Game {
         window.setXscale(0,100);
         window.setYscale(0,100);
         tableList = new ArrayList<>();
+        menuItemList = new ArrayList<>();
         GameListener listener = new GameListener(this);
         window.addListener(listener);
 
     }
 
-    public Draw getWindow() {
-        return window;
+    public Draw getWindow() { return window; }
+    
+    public void setMenuItemList() {
+        menuItemList.add(new MenuItem(10.15, "Hamburger"));
+        menuItemList.add(new MenuItem(6.99, "French Fries"));
+        menuItemList.add(new MenuItem(9.99, "Chicken Caesar Salad"));
+        menuItemList.add(new MenuItem(3.95, "Lemonade"));
+        menuItemList.add(new MenuItem(6.45, "Key Lime Pie"));
+        menuItemList.add(new MenuItem(7.15, "Cheese Pizza Slice"));
     }
 
     public boolean selectTableAt(double x, double y) {
