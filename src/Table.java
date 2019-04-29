@@ -61,7 +61,7 @@ public class Table {
     }
 
     public void readyToOrder() {
-        game.getWindow().setPenColor(72, 158, 62);
+        game.getWindow().setPenColor(Color.green);
         game.getWindow().filledRectangle(x+7, y+6, 3, 3);
         game.getWindow().setPenColor(Color.black);
         Font font = new Font("Dialog", Font.PLAIN, 11);
