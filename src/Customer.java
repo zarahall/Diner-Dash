@@ -55,6 +55,8 @@ public class Customer {
 
     }
 
+    public Table getTable(){ return table;}
+
     public void drawInLine(int xLoc, int yLoc) {
         x = xLoc;
         y = yLoc;
