@@ -37,9 +37,11 @@ public class Table {
     public void draw() {
         game.getWindow().setPenColor(Color.gray);
         game.getWindow().filledRectangle(x, y, width/2.0, height/2.0);
+        tableText();
     }
 
-    public void tableText(Table table) {
-        game.getWindow().text(table.getX(), table.getY(), num);
+    public void tableText() {
+        game.getWindow().setPenColor(Color.black);
+        game.getWindow().text(x, y, num);
     }
 }
