@@ -35,6 +35,8 @@ public class Game {
         menuItemList.add(new MenuItem(6.45, "Key Lime Pie"));
         menuItemList.add(new MenuItem(7.15, "Cheese Pizza Slice"));
     }
+    
+    public MenuItem getMenuItem(int index) { return menuItemList.get(index); }
 
     public Table selectTableAt(double x, double y) {
         Table tableClicked = null;
