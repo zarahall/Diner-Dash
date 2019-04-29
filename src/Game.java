@@ -15,10 +15,9 @@ public class Game {
 
     }
 
-    public Draw getWindow(){
+    public Draw getWindow() {
         return window;
     }
-
 
     public static void main(String[] args){
         Game game = new Game();
@@ -30,7 +29,17 @@ public class Game {
         table1.draw();
         Table table2 = new Table(70, 20, 25, 25, game, "2");
         table2.draw();
+        Table table3 = new Table(30, 50, 25, 25, game, "3");
+        table3.draw();
+        Table table4 = new Table(70, 50, 25, 25, game, "4");
+        table4.draw();
+
+        //Draw kitchen
+        Kitchen kitchen = new Kitchen(game);
+        kitchen.draw();
+
         game.window.show();
+
 
     }
 
