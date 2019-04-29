@@ -13,8 +13,8 @@ public class Kitchen {
         game.getWindow().picture(50, 90, "chef.png", 20, 20);
         game.getWindow().setPenColor(40, 96, 109);
         game.getWindow().filledRectangle(50, 80, 50, 3);
-        game.getWindow().filledRectangle(10, 95, 9, 3);
         // Kitchen label
+        game.getWindow().filledRectangle(10, 95, 9, 3);
         game.getWindow().setPenColor(Color.black);
         game.getWindow().text(10, 95, "KITCHEN");
     }

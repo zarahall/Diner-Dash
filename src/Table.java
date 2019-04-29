@@ -49,8 +49,15 @@ public class Table {
     }
 
     public void draw() {
+        int y2 = y+7;
         game.getWindow().setPenColor(Color.gray);
         game.getWindow().filledRectangle(x, y, width/2.0, height/2.0);
+        game.getWindow().setPenColor(Color.BLACK);
+        game.getWindow().line(x, y2, x, y-2);
+        game.getWindow().filledRectangle(x, y2, width/6.7, width/6.7);
+        game.getWindow().setPenColor(157, 159, 152);
+        game.getWindow().filledRectangle(x, y2, width/7.5, width/7.5);
+
         tableText();
     }
 
@@ -58,6 +65,6 @@ public class Table {
         Font gameFont = new Font("Dialog", Font.PLAIN, 30);
         game.getWindow().setFont(gameFont);
         game.getWindow().setPenColor(Color.black);
-        game.getWindow().text(x, y, num);
+        game.getWindow().text(x, y+7, num);
     }
 }
