@@ -15,6 +15,8 @@ public class Customer {
     //time that the customer enters the restaurant
     private long startTime;
     private long elapsedTime;
+    
+    private double cost;
 
     private boolean isSelected = false;
 
@@ -76,14 +78,16 @@ public class Customer {
     public void drawaAtTable() {
         x = table.getX();
         y = table.getY();
-        game.getWindow().picture(x, y-7, pictureFileName, width, height);
+        game.getWindow().picture(x, y - 7, pictureFileName, width, height);
         table.drawMenu();
     }
-    public void order(){
+    public void order() {
         orderIndex = (int) (Math.random() * 6 + 1);
-        pric
+        cost = game.getMenuItem(orderIndex).getPrice();
     }
     
-    public void calcTip
+    public void calcTip() {
+    
+    }
 
 }
