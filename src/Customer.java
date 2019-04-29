@@ -15,6 +15,7 @@ public class Customer {
     //time that the customer enters the restaurant
     private long startTime;
     private long elapsedTime;
+    private Table table;
 
     public Customer(String filename, int width, int heigth, int x, int y){
         this.x = x;
@@ -38,8 +39,11 @@ public class Customer {
 
     }
     
-    public void draw() {
+    public void setTable(Table table) { this.table = table; }
     
+    public void draw() {
+        int xTableLoc = table.getX();
+        int yTableLoc = table.getY();
     }
     public void order(){
 
