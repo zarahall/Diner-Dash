@@ -30,7 +30,12 @@ public class Customer {
     public void updateHappiness(){
         elapsedTime = System.currentTimeMillis() - startTime;
         long secondsElapsed = elapsedTime / 1000;
-       // if(secondsElapsed >)
+        if(secondsElapsed > 120){
+            happiness = 0;
+        }else if(secondsElapsed > 60){
+            happiness = 30;
+        }
+
     }
 
 

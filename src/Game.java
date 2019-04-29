@@ -14,6 +14,11 @@ public class Game {
 
     }
 
+    public Draw getWindow(){
+        return window;
+    }
+
+
     public static void main(String[] args){
         Game game = new Game();
         game.window.show();

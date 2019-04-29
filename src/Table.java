@@ -6,6 +6,7 @@ public class Table {
     //size of the table
     private int width;
     private int height;
+    private Game game;
 
     //x and y coordinates of the table
     private int x,y;
@@ -17,6 +18,10 @@ public class Table {
         this.y = y;
         width = w;
         height = h;
+    }
+
+    public void draw(){
+        game.getWindow().filledRectangle(x,y,width/2.0,height/2.0);
     }
 
 
