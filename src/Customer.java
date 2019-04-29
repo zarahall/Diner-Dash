@@ -16,6 +16,8 @@ public class Customer {
     private long startTime;
     private long elapsedTime;
 
+    private boolean isSelected = false;
+
     private Table table;
     private Game game;
 
@@ -49,6 +51,16 @@ public class Customer {
         y = yLoc;
         game.getWindow().picture(x, y, pictureFileName, width, height);
     }
+
+    public boolean containsPoint(double x, double y) {
+        double deltaX = x - this.x;
+        double deltaY = y - this.y;
+        double dist = Math.sqrt(deltaX*deltaX + deltaY*deltaY);
+        return dist <= width;
+    }
+
+    public void setSelected(boolean selected) { isSelected = selected; }
+
 
     public void drawaAtTable() {
         x = table.getX();
