@@ -33,11 +33,17 @@ public class GameListener implements DrawListener {
 
     @Override
     public void mousePressed(double x, double y) {
+        boolean customerClicked = game.selectCustomerAt(x, y);
+        if (customerClicked) { System.out.println("hi5");}
 
         boolean tableClicked = game.selectTableAt(x, y);
         if (tableClicked) { System.out.println("hi");}
-        boolean customerClicked = game.selectCustomerAt(x, y);
-        if (customerClicked) { System.out.println("hi5");}
+
+        if(customerClicked&& tableClicked){
+
+        }
+
+
 
     }
 

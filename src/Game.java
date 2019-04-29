@@ -8,6 +8,7 @@ public class Game {
     private ArrayList<MenuItem> menuItemList;
     private ArrayList<Customer> customersList;
     private Draw window2;
+    private Customer customerClicked;
 
     public Game(){
         window = new Draw("Diner Dash");
@@ -19,6 +20,7 @@ public class Game {
         customersList = new ArrayList<>();
         GameListener listener = new GameListener(this);
         window.addListener(listener);
+        customerClicked = null;
 
     }
 
@@ -55,7 +57,7 @@ public class Game {
 
 
     public boolean selectCustomerAt(double x, double y) {
-        Customer customerClicked = null;
+        customerClicked = null;
         for (Customer c : customersList) {
             if (c.containsPoint(x, y)) {
                 c.setSelected(true);
