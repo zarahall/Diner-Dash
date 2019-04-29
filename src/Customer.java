@@ -111,22 +111,22 @@ public class Customer {
         if(table.updateFoodTime()>=5){
             MenuItem food = order();
             if(order().getName().equals("Hamburger")){
-                table.drawFood("Hamburger.png");
+                table.drawFood("hamburger.png");
             }
             if(order().getName().equals("French Fries")){
-                table.drawFood("FrenchFries.png");
+                table.drawFood("fries.png");
             }
             if(order().getName().equals("Key Lime Pie")){
-                table.drawFood("KeyLimePie.png");
+                table.drawFood("keyLimePie.png");
             }
             if(order().getName().equals("Lemonade")){
-                table.drawFood("CheesePizzaSlice.png");
+                table.drawFood("lemonade.png");
             }
             if(order().getName().equals("Chicken Caesar Salad")){
-                table.drawFood("ChickenCaesarSalad.png");
+                table.drawFood("salad.png");
             }
             if(order().getName().equals("Cheese Pizza Slice")){
-                table.drawFood("CheesePizzaSlice.png");
+                table.drawFood("pizza.png");
             }
 
         }
