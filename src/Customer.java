@@ -90,7 +90,8 @@ public class Customer {
     }
     
     public void calcTip() {
-        tip = charge * .2 * happiness / 10;
+        tip = charge * .2 * happiness / 5;
+        tip = (double) Math.round(tip * 100) / 100;
     }
 
 }
