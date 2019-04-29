@@ -16,6 +16,8 @@ public class Table {
     private int x,y;
     //has the player selected this table
     private boolean isSelected = false;
+    // table has customers
+    private boolean hasCustomers;
     // Table number
     String num;
 
@@ -26,20 +28,17 @@ public class Table {
         height = h;
         this.tableNum = tableNum;
         this.game = game;
+        this.hasCustomers = false;
         this.num = num;
     }
 
-    public int getX() {
-        return x;
-    }
+    public int getX() { return x; }
 
-    public int getY() {
-        return y;
-    }
+    public int getY() { return y; }
 
-    public int getTableNum() {
-        return tableNum;
-    }
+    public int getTableNum() { return tableNum; }
+
+    public boolean gatHasCustomers() { return hasCustomers; }
 
     public boolean containsPoint(double x, double y) {
         if(x < this.x+(width/2.0) && x > this.x-(width/2.0)){
@@ -50,9 +49,7 @@ public class Table {
         return false;
     }
 
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
+    public void setSelected(boolean selected) { isSelected = selected; }
 
     public void draw() {
         int y2 = y+10;
