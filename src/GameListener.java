@@ -29,6 +29,7 @@ public class GameListener implements DrawListener {
             tableClicked = game.selectTableAt(x, y);
             if(tableClicked != null){
                 customerClicked.setTable(tableClicked);
+                tableClicked = null;
             }
         }
         if(tableClicked != null){
