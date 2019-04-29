@@ -47,7 +47,11 @@ public class Customer {
         elapsedTime = System.currentTimeMillis() - startTime;
     }
 
-    public void setTable(Table table) { this.table = table; }
+    public void setTable(Table table) {
+        this.table = table;
+        drawaAtTable();
+
+    }
 
     public void drawInLine(int xLoc, int yLoc) {
         x = xLoc;
@@ -68,7 +72,8 @@ public class Customer {
     public void drawaAtTable() {
         x = table.getX();
         y = table.getY();
-        game.getWindow().picture(x, y, pictureFileName);
+        game.getWindow().picture(x, y, pictureFileName, width, height);
+        game.getWindow().show();
     }
     public void order(){
 

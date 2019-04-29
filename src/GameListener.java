@@ -25,13 +25,15 @@ public class GameListener implements DrawListener {
 
     @Override
     public void mouseDragged(double x, double y) {
-        Customer customerClicked = game.selectCustomerAt(x, y);
-        Table tableClicked = game.selectTableAt(x, y);
-
-        if(customerClicked != null && tableClicked != null){
-            System.out.println("hi");
+        if(customerClicked != null){
+            tableClicked = game.selectTableAt(x, y);
+            if(tableClicked != null){
+                customerClicked.setTable(tableClicked);
+            }
         }
+        if(tableClicked != null){
 
+        }
     }
 
     @Override
@@ -41,8 +43,10 @@ public class GameListener implements DrawListener {
 
     @Override
     public void mousePressed(double x, double y) {
-        Customer customerClicked = game.selectCustomerAt(x, y);
-        Table tableClicked = game.selectTableAt(x, y);
+        customerClicked = null;
+        tableClicked = null;
+        customerClicked = game.selectCustomerAt(x, y);
+        tableClicked = game.selectTableAt(x, y);
 
     }
 
