@@ -7,6 +7,7 @@ public class Game {
     private ArrayList<Table> tableList;
     private ArrayList<Customer> customersList;
     private ArrayList<MenuItem> menuItemList;
+    private Draw window2;
 
     public Game(){
         window = new Draw("Diner Dash");
