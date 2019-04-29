@@ -15,11 +15,12 @@ public class Customer {
     //time that the customer enters the restaurant
     private long startTime;
     private long elapsedTime;
-
     private boolean isSelected = false;
-    
     private int orderIndex;
-
+    
+    private double price;
+    private double tip;
+    
     private Table table;
     private Game game;
 
@@ -51,7 +52,7 @@ public class Customer {
 
     public void setTable(Table table) {
         this.table = table;
-        drawaAtTable();
+        drawAtTable();
 
     }
 
@@ -71,7 +72,7 @@ public class Customer {
     public void setSelected(boolean selected) { isSelected = selected; }
 
 
-    public void drawaAtTable() {
+    public void drawAtTable() {
         x = table.getX();
         y = table.getY();
         game.getWindow().picture(x, y-7, pictureFileName, width, height);
@@ -80,6 +81,7 @@ public class Customer {
     }
     public void order(){
         orderIndex = (int) (Math.random() * 6 + 1);
+        
     }
 
 }
