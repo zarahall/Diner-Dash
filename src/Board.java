@@ -42,6 +42,7 @@ public class Board {
         game.add(table4);
     }
 
+
     public void drawBoard() {
         drawKitchen();
         drawTables();
