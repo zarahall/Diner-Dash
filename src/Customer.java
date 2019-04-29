@@ -16,6 +16,7 @@ public class Customer {
     private long startTime;
     private long elapsedTime;
     
+    
     private double charge;
     
     private double tip;
@@ -89,7 +90,7 @@ public class Customer {
     }
     
     public void calcTip() {
-    
+        tip = charge * .2 * happiness / 10;
     }
 
 }
