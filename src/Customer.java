@@ -51,6 +51,10 @@ public class Customer {
             happiness = 0;
         }else if(secondsElapsed > 60){
             happiness = 30;
+            pictureFileName = "red.png";
+        }else if(secondsElapsed > 30){
+            happiness = 70;
+            pictureFileName = "yellow.png";
         }
     }
 
