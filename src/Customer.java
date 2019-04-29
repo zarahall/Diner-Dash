@@ -80,6 +80,9 @@ public class Customer {
     }
     public void order(){
         orderIndex = (int) (Math.random() * 6 + 1);
+        pric
     }
+    
+    public void calcTip
 
 }
