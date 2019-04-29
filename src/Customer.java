@@ -43,7 +43,10 @@ public class Customer {
         }else if(secondsElapsed > 60){
             happiness = 30;
         }
+    }
 
+    public void updateTime(){
+        elapsedTime = System.currentTimeMillis() - startTime;
     }
 
     public void setTable(Table table) { this.table = table; }
@@ -58,7 +61,7 @@ public class Customer {
         double deltaX = x - this.x;
         double deltaY = y - this.y;
         double dist = Math.sqrt(deltaX*deltaX + deltaY*deltaY);
-        return dist <= width;
+        return dist <= width/2.0;
     }
 
     public void setSelected(boolean selected) { isSelected = selected; }
