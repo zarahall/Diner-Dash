@@ -5,6 +5,7 @@ public class Game {
     //window in which the game will take place;
     private Draw window;
     private ArrayList<Table> tableList;
+    private ArrayList<MenuItem> menuItemList;
 
     public Game(){
         window = new Draw("Diner Dash");
