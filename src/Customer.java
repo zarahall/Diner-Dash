@@ -15,8 +15,11 @@ public class Customer {
     //time that the customer enters the restaurant
     private long startTime;
     private long elapsedTime;
+    
+    private Table table;
+    private Game game;
 
-    public Customer(String filename, int width, int heigth, int x, int y){
+    public Customer(String filename, Game game, int width, int heigth, int x, int y){
         this.x = x;
         this.y = y;
         pictureFileName = filename;
@@ -25,6 +28,7 @@ public class Customer {
         this.happiness = 100;
         startTime = System.currentTimeMillis();
         elapsedTime = 0;
+        this.game = game;
     }
 
     public void updateHappiness(){
@@ -37,7 +41,20 @@ public class Customer {
         }
 
     }
-
+    
+    public void setTable(Table table) { this.table = table; }
+    
+    public void drawInLine(int xLoc, int yLoc) {
+        x = xLoc;
+        y = yLoc;
+        game.getWindow().picture(x, y, pictureFileName);
+    }
+    
+    public void drawaAtTable() {
+        x = table.getX();
+        y = table.getY();
+        game.getWindow().picture(x, y, pictureFileName);
+    }
     public void order(){
 
     }
