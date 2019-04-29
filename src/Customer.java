@@ -74,7 +74,8 @@ public class Customer {
     public void drawaAtTable() {
         x = table.getX();
         y = table.getY();
-        game.getWindow().picture(x, y, pictureFileName, width, height);
+        game.getWindow().picture(x, y-7, pictureFileName, width, height);
+        table.drawMenu();
         game.getWindow().show();
     }
     public void order(){

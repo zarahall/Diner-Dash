@@ -103,7 +103,7 @@ public class Game {
         table4.draw();
         game.add(table4);
 
-        Customer cust1 = new Customer("green.png",game,15,15,15,20);
+        Customer cust1 = new Customer("green.png", game,15,15,15,20);
         cust1.drawInLine(15,20);
         game.add(cust1);
 
@@ -113,6 +113,7 @@ public class Game {
 
         game.window.show();
 
+        System.out.println(System.currentTimeMillis()/60000);
 
     }
 }

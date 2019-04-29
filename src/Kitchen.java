@@ -7,6 +7,10 @@ public class Kitchen {
         this.game = game;
     }
 
+    public void drawTimer() {
+
+    }
+
     public void draw() {
         game.getWindow().setPenColor(240, 200, 81);
         game.getWindow().filledRectangle(50, 90, 50, 10);
