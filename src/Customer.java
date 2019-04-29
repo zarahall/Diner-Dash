@@ -37,7 +37,10 @@ public class Customer {
         }
 
     }
-
+    
+    public void draw() {
+    
+    }
     public void order(){
 
     }
