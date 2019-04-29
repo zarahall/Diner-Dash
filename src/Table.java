@@ -51,6 +51,15 @@ public class Table {
 
     public void setSelected(boolean selected) { isSelected = selected; }
 
+    public void drawMenu() {
+        game.getWindow().setPenColor(Color.white);
+        game.getWindow().filledRectangle(x-7, y+4, 2, 3);
+        game.getWindow().setPenColor(Color.BLACK);
+        Font font = new Font("Dialog", Font.PLAIN, 11);
+        game.getWindow().setFont(font);
+        game.getWindow().text(x-7, y+6, "Menu");
+    }
+
     public void draw() {
         int y2 = y+10;
         game.getWindow().setPenColor(Color.gray);
@@ -60,6 +69,8 @@ public class Table {
         game.getWindow().filledRectangle(x, y2, width/6.7, width/6.7);
         game.getWindow().setPenColor(157, 159, 152);
         game.getWindow().filledRectangle(x, y2, width/7.5, width/7.5);
+        drawMenu();
+
         tableText();
     }
 
