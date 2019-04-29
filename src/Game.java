@@ -85,8 +85,10 @@ public class Game {
     }
 
     public void displayTime() {
-        window.setPenColor(Color.white);
+        window.setPenColor(209, 196, 208);
         window.filledRectangle(90, 90, 4, 4);
+        Font gameFont = new Font("Dialog", Font.PLAIN, 30);
+        window.setFont(gameFont);
         window.setPenColor(Color.black);
         window.text(90, 90, 180-updateTime()+"");
     }
@@ -108,13 +110,13 @@ public class Game {
         game.add(cust1);
 
         while(true){
-            game.displayTime();
             if(cust1.getTable()!=null){
                 game.window.clear();
                 board.drawBoard();
                 cust1.drawaAtTable();
                 cust1.updateTime();
             }
+            game.displayTime();
             game.window.show();
 
         }
