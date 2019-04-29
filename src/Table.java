@@ -4,6 +4,7 @@ import java.awt.*;
  * Class for the tables in the restaurant. The game initially starts with two tables, but as the customer increases in level,
  * more tables can be added
  */
+
 public class Table {
     //size of the table
     private int width;
@@ -47,7 +48,6 @@ public class Table {
         isSelected = selected;
     }
 
-
     public void draw() {
         game.getWindow().setPenColor(Color.gray);
         game.getWindow().filledRectangle(x, y, width/2.0, height/2.0);
@@ -55,6 +55,8 @@ public class Table {
     }
 
     public void tableText() {
+        Font gameFont = new Font("Dialog", Font.PLAIN, 30);
+        game.getWindow().setFont(gameFont);
         game.getWindow().setPenColor(Color.black);
         game.getWindow().text(x, y, num);
     }
