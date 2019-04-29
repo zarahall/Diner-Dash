@@ -60,6 +60,17 @@ public class Table {
         game.getWindow().text(x-7, y+6, "Menu");
     }
 
+    public void readyToOrder() {
+        game.getWindow().setPenColor(72, 158, 62);
+        game.getWindow().filledRectangle(x+7, y+6, 3, 3);
+        game.getWindow().setPenColor(Color.black);
+        Font font = new Font("Dialog", Font.PLAIN, 11);
+        game.getWindow().setFont(font);
+        game.getWindow().text(x+7, y+6.5, "Ready to");
+        game.getWindow().text(x+7, y+5, "order");
+
+    }
+
     public void draw() {
         int y2 = y+10;
         game.getWindow().setPenColor(Color.gray);

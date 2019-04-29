@@ -115,6 +115,9 @@ public class Game {
                 board.drawBoard();
                 cust1.drawaAtTable();
                 cust1.updateTime();
+                if (cust1.isReadyForOrder()) {
+                    cust1.getTable().readyToOrder();
+                }
             }
             game.displayTime();
             game.window.show();
