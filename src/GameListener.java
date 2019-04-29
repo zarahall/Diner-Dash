@@ -2,6 +2,7 @@ import java.awt.*;
 
 public class GameListener implements DrawListener {
     private Game game;
+
     public GameListener(Game game){
         this.game = game;
     }
@@ -32,6 +33,8 @@ public class GameListener implements DrawListener {
 
     @Override
     public void mousePressed(double x, double y) {
+        boolean tableClicked = game.selectTableAt(x, y);
+        if (tableClicked) { System.out.println("hi");}
 
     }
 
