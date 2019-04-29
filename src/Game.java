@@ -55,12 +55,16 @@ public class Game {
         // Make tables
         Table table1 = new Table(30, 20, 25, 25, game, "1");
         table1.draw();
+        game.add(table1);
         Table table2 = new Table(70, 20, 25, 25, game, "2");
         table2.draw();
+        game.add(table2);
         Table table3 = new Table(30, 50, 25, 25, game, "3");
         table3.draw();
+        game.add(table3);
         Table table4 = new Table(70, 50, 25, 25, game, "4");
         table4.draw();
+        game.add(table4);
 
         //Draw kitchen
         Kitchen kitchen = new Kitchen(game);
