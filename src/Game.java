@@ -8,6 +8,8 @@ public class Game {
     private ArrayList<MenuItem> menuItemList;
     private ArrayList<Customer> customersList;
     private Draw window2;
+    private long startTime;
+    private long elapsedTime;
 
     public Game(){
         window = new Draw("Diner Dash");
@@ -19,7 +21,8 @@ public class Game {
         customersList = new ArrayList<>();
         GameListener listener = new GameListener(this);
         window.addListener(listener);
-
+        startTime = System.currentTimeMillis();
+        elapsedTime = 0;
     }
 
     public Draw getWindow() { return window; }
@@ -74,7 +77,10 @@ public class Game {
         return customerClicked;
     }
 
-
+    public long updateTime(){
+        elapsedTime =( System.currentTimeMillis() - startTime)/1000;
+        return elapsedTime;
+    }
 
     /** Adds given portal to this window. */
     public void add(Customer c) { customersList.add(c); }
