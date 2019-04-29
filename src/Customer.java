@@ -16,7 +16,9 @@ public class Customer {
     private long startTime;
     private long elapsedTime;
     
-    private double cost;
+    private double charge;
+    
+    private double tip;
 
     private boolean isSelected = false;
 
@@ -83,7 +85,7 @@ public class Customer {
     }
     public void order() {
         orderIndex = (int) (Math.random() * 6 + 1);
-        cost = game.getMenuItem(orderIndex).getPrice();
+        charge = game.getMenuItem(orderIndex).getPrice();
     }
     
     public void calcTip() {
