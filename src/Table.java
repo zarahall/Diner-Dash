@@ -9,6 +9,7 @@ public class Table {
     //size of the table
     private int width;
     private int height;
+    private int tableNum;
     private Game game;
 
     //x and y coordinates of the table
@@ -18,21 +19,26 @@ public class Table {
     // Table number
     String num;
 
-    public Table(int x, int y, int w, int h, Game game, String num){
+    public Table(int x, int y, int w, int h, int tableNum, Game game, String num){
         this.x = x;
         this.y = y;
         width = w;
         height = h;
+        this.tableNum = tableNum;
         this.game = game;
         this.num = num;
     }
 
-    public int getX(){
+    public int getX() {
         return x;
     }
 
-    public int getY(){
+    public int getY() {
         return y;
+    }
+
+    public int getTableNum() {
+        return tableNum;
     }
 
     public boolean containsPoint(double x, double y) {
@@ -49,15 +55,14 @@ public class Table {
     }
 
     public void draw() {
-        int y2 = y+7;
+        int y2 = y+10;
         game.getWindow().setPenColor(Color.gray);
         game.getWindow().filledRectangle(x, y, width/2.0, height/2.0);
         game.getWindow().setPenColor(Color.BLACK);
-        game.getWindow().line(x, y2, x, y-2);
+        game.getWindow().line(x, y2, x, y+3);
         game.getWindow().filledRectangle(x, y2, width/6.7, width/6.7);
         game.getWindow().setPenColor(157, 159, 152);
         game.getWindow().filledRectangle(x, y2, width/7.5, width/7.5);
-
         tableText();
     }
 
@@ -65,6 +70,6 @@ public class Table {
         Font gameFont = new Font("Dialog", Font.PLAIN, 30);
         game.getWindow().setFont(gameFont);
         game.getWindow().setPenColor(Color.black);
-        game.getWindow().text(x, y+7, num);
+        game.getWindow().text(x, y+10, num);
     }
 }

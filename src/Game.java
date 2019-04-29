@@ -53,16 +53,16 @@ public class Game {
         game.window.setPenColor(Color.lightGray);
         game.window.filledRectangle(50, 50, 50, 50);
         // Make tables
-        Table table1 = new Table(40, 50, 22, 22, game, "1");
+        Table table1 = new Table(40, 50, 22, 22, 1, game, "1");
         table1.draw();
         game.add(table1);
-        Table table2 = new Table(80, 50, 22, 22, game, "2");
+        Table table2 = new Table(80, 50, 22, 22, 2, game, "2");
         table2.draw();
         game.add(table2);
-        Table table3 = new Table(40, 20, 22, 22, game, "3");
+        Table table3 = new Table(40, 20, 22, 22, 3, game, "3");
         table3.draw();
         game.add(table3);
-        Table table4 = new Table(80, 20, 22, 22, game, "4");
+        Table table4 = new Table(80, 20, 22, 22, 4, game, "4");
         table4.draw();
         game.add(table4);
 
