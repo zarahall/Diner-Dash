@@ -101,9 +101,35 @@ public class Customer {
         game.getWindow().picture(x, y - 7, pictureFileName, width, height);
         table.drawMenu();
     }
-    public void order() {
+    public MenuItem order() {
         orderIndex = (int) (Math.random() * 6 + 1);
         charge = game.getMenuItem(orderIndex).getPrice();
+        return game.getMenuItem(orderIndex);
+    }
+
+    public void orderFood(){
+        if(table.updateFoodTime()>=5){
+            MenuItem food = order();
+            if(order().getName().equals("Hamburger")){
+                table.drawFood("Hamburger.png");
+            }
+            if(order().getName().equals("French Fries")){
+                table.drawFood("FrenchFries.png");
+            }
+            if(order().getName().equals("Key Lime Pie")){
+                table.drawFood("KeyLimePie.png");
+            }
+            if(order().getName().equals("Lemonade")){
+                table.drawFood("CheesePizzaSlice.png");
+            }
+            if(order().getName().equals("Chicken Caesar Salad")){
+                table.drawFood("ChickenCaesarSalad.png");
+            }
+            if(order().getName().equals("Cheese Pizza Slice")){
+                table.drawFood("CheesePizzaSlice.png");
+            }
+
+        }
     }
 
     public void calcTip() {

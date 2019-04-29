@@ -49,6 +49,10 @@ public class GameListener implements DrawListener {
         customerClicked = game.selectCustomerAt(x, y);
         tableClicked = game.selectTableAt(x, y);
 
+        if(tableClicked.getReadyToOrder()){
+            tableClicked.startFoodTimer();
+        }
+
     }
 
 }

@@ -11,6 +11,8 @@ public class Table {
     private int height;
     private int tableNum;
     private Game game;
+    private boolean readyToOrder;
+    private long foodStartTime;
 
     //x and y coordinates of the table
     private int x,y;
@@ -30,6 +32,7 @@ public class Table {
         this.game = game;
         this.hasCustomers = false;
         this.num = num;
+        readyToOrder = false;
     }
 
     public int getX() { return x; }
@@ -61,6 +64,7 @@ public class Table {
     }
 
     public void readyToOrder() {
+        readyToOrder = true;
         game.getWindow().setPenColor(Color.green);
         game.getWindow().filledRectangle(x+7, y+6, 3, 3);
         game.getWindow().setPenColor(Color.black);
@@ -69,6 +73,20 @@ public class Table {
         game.getWindow().text(x+7, y+6.5, "Ready to");
         game.getWindow().text(x+7, y+5, "order");
 
+    }
+
+    public void startFoodTimer(){
+        foodStartTime = System.currentTimeMillis();
+    }
+
+    public long updateFoodTime(){
+        long time = (System.currentTimeMillis() - foodStartTime)/1000;
+        return time;
+    }
+
+
+    public boolean getReadyToOrder(){
+        return readyToOrder;
     }
 
     public void draw() {
@@ -84,6 +102,10 @@ public class Table {
             drawMenu();
         }
         tableText();
+    }
+
+    public void drawFood(String filename){
+        game.getWindow().picture(x,y,filename);
     }
 
     public void tableText() {
