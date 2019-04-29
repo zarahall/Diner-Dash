@@ -19,7 +19,7 @@ public class Customer {
     private Table table;
     private Game game;
 
-    public Customer(String filename, int width, int heigth, int x, int y){
+    public Customer(String filename, Game game, int width, int heigth, int x, int y){
         this.x = x;
         this.y = y;
         pictureFileName = filename;
@@ -28,6 +28,7 @@ public class Customer {
         this.happiness = 100;
         startTime = System.currentTimeMillis();
         elapsedTime = 0;
+        this.game = game;
     }
 
     public void updateHappiness(){
@@ -43,8 +44,8 @@ public class Customer {
     
     public void setTable(Table table) { this.table = table; }
     
-    public void drawInLine() {
-    
+    public void drawInLine(int xLoc, int yLoc) {
+        game.getWindow().picture(xLoc, yLoc, pictureFileName);
     }
     
     public void drawaAtTable() {
