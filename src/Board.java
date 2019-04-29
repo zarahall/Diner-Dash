@@ -8,7 +8,6 @@ public class Board {
         this.game = game;
     }
 
-
     public void drawKitchen() {
         game.getWindow().setPenColor(Color.lightGray);
         game.getWindow().filledRectangle(50, 50, 50, 50);
@@ -19,6 +18,8 @@ public class Board {
         game.getWindow().filledRectangle(50, 80, 50, 3);
         // Kitchen label
         game.getWindow().filledRectangle(10, 95, 9, 3);
+        Font gameFont = new Font("Dialog", Font.PLAIN, 30);
+        game.getWindow().setFont(gameFont);
         game.getWindow().setPenColor(Color.black);
         game.getWindow().text(10, 95, "KITCHEN");
         game.getWindow().setPenColor(131, 23, 23);
@@ -40,6 +41,7 @@ public class Board {
         table4.draw();
         game.add(table4);
     }
+
 
     public void drawBoard() {
         drawKitchen();

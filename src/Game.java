@@ -84,6 +84,13 @@ public class Game {
         return elapsedTime;
     }
 
+    public void displayTime() {
+        window.setPenColor(Color.white);
+        window.filledRectangle(90, 90, 4, 4);
+        window.setPenColor(Color.black);
+        window.text(90, 90, 180-updateTime()+"");
+    }
+
     /** Adds given portal to this window. */
     public void add(Customer c) { customersList.add(c); }
 
@@ -96,12 +103,12 @@ public class Game {
         Game game = new Game();
         Board board = new Board(game);
         board.drawBoard();
-
         Customer cust1 = new Customer("green.png", game,15,15,15,20);
         cust1.drawInLine(15,20);
         game.add(cust1);
 
         while(true){
+            game.displayTime();
             if(cust1.getTable()!=null){
                 game.window.clear();
                 board.drawBoard();
