@@ -126,10 +126,8 @@ public class Game {
                     if(cust1.getTable().isOrderTaken()){
                         cust1.orderFood();
                     }
-                    //cust1.orderFood();
                 }
                 cust1.drawFood();
-
             }
             cust1.updateHappiness();
             game.displayTime();

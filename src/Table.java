@@ -15,6 +15,7 @@ public class Table {
     private long foodStartTime;
     private boolean orderTaken;
     private boolean isFood;
+    private boolean preparingFood;
 
     //x and y coordinates of the table
     private int x,y;
@@ -37,6 +38,7 @@ public class Table {
         readyToOrder = false;
         orderTaken = false;
         isFood = false;
+        preparingFood = false;
     }
 
     public int getX() { return x; }
@@ -88,13 +90,15 @@ public class Table {
     }
 
     public void drawReadyToOrder(){
-        game.getWindow().setPenColor(Color.green);
-        game.getWindow().filledRectangle(x+7, y+6, 3, 3);
-        game.getWindow().setPenColor(Color.black);
-        Font font = new Font("Dialog", Font.PLAIN, 11);
-        game.getWindow().setFont(font);
-        game.getWindow().text(x+7, y+6.5, "Ready to");
-        game.getWindow().text(x+7, y+5, "order");
+        if(readyToOrder && !preparingFood) {
+            game.getWindow().setPenColor(Color.green);
+            game.getWindow().filledRectangle(x + 7, y + 6, 3, 3);
+            game.getWindow().setPenColor(Color.black);
+            Font font = new Font("Dialog", Font.PLAIN, 11);
+            game.getWindow().setFont(font);
+            game.getWindow().text(x + 7, y + 6.5, "Ready to");
+            game.getWindow().text(x + 7, y + 5, "order");
+        }
     }
 
     public void draw() {
@@ -113,7 +117,11 @@ public class Table {
     }
 
     public void drawFood(MenuItem food){
-        game.getWindow().picture(x,y,food.getFileName(),10,10);
+        if(food.getName().equals("lemonade")){
+            game.getWindow().picture(x,y,food.getFileName(),10,10);
+        }else{
+            game.getWindow().picture(x,y,food.getFileName(),17,10);
+        }
     }
     public boolean isOrderTaken(){
         return orderTaken;
@@ -121,6 +129,11 @@ public class Table {
 
     public void setOrderTaken(boolean b){
         orderTaken = b;
+
+        if(b) {
+            readyToOrder = false;
+            preparingFood = true;
+        }
     }
 
     public void setIsFood(boolean i){
@@ -128,6 +141,10 @@ public class Table {
     }
     public boolean getIsFood(){
          return isFood;
+    }
+
+    public boolean getPreparingFood(){
+        return preparingFood;
     }
 
 

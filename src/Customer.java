@@ -100,8 +100,9 @@ public class Customer {
     public void drawaAtTable() {
         x = table.getX();
         y = table.getY();
-        game.getWindow().picture(x, y - 12, pictureFileName, width, height);
+        game.getWindow().picture(x, y - 14, pictureFileName, width, height);
         table.drawMenu();
+        table.drawReadyToOrder();
     }
     public MenuItem order() {
         orderIndex = (int) (Math.random() * 6 );
