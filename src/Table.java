@@ -16,6 +16,7 @@ public class Table {
     private boolean orderTaken;
     private boolean isFood;
     private boolean preparingFood;
+    private long  eatingStartTime;
 
     //x and y coordinates of the table
     private int x,y;
@@ -79,8 +80,19 @@ public class Table {
         foodStartTime = System.currentTimeMillis();
     }
 
+    public void startEatingTimer(){
+        eatingStartTime = System.currentTimeMillis();
+    }
+
+
     public long updateFoodTime(){
         long time = (System.currentTimeMillis() - foodStartTime)/1000;
+        return time;
+    }
+
+
+    public long updateEatingTime(){
+        long time = (System.currentTimeMillis() - eatingStartTime)/1000;
         return time;
     }
 

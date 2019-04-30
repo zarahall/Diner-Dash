@@ -54,6 +54,7 @@ public class GameListener implements DrawListener {
                 tableClicked.startFoodTimer();
                 tableClicked.setOrderTaken(true);
             }
+
         }
 
     }
