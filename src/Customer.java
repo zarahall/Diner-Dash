@@ -72,6 +72,7 @@ public class Customer {
     public void setTable(Table table) {
         this.table = table;
         drawaAtTable();
+        table.setHasCustomers(true);
         orderStartTime = System.currentTimeMillis();
     }
 
@@ -138,7 +139,6 @@ public class Customer {
                     game.addMoney(charge);
                     hasPaid = true;
                 }
-
             }
         }
     }
@@ -150,7 +150,19 @@ public class Customer {
     }
 
     public void calcTip() {
-        tip = charge * .2 * happiness / 5;
+        tip = charge * .2 * (happiness / 100);
         tip = (double) Math.round(tip * 100) / 100;
+    }
+
+    public boolean leave(){
+        if(!table.getHasCustomers()){
+            table = null;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean gethasPaid(){
+        return hasPaid;
     }
 }

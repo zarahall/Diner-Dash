@@ -62,6 +62,9 @@ public class Table {
 
     public void setSelected(boolean selected) { isSelected = selected; }
 
+    public void setHasCustomers(boolean h) { hasCustomers = h; }
+
+
     public void drawMenu() {
         if(!(isOrderTaken() || isFood || isMoney)) {
             game.getWindow().setPenColor(221, 206, 217);
@@ -166,6 +169,7 @@ public class Table {
 
     public void setMoney(boolean m){ isMoney = m;}
 
+    public boolean hasMoney(){ return isMoney; }
 
     public void tableText() {
         Font gameFont = new Font("Dialog", Font.PLAIN, 30);

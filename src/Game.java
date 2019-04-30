@@ -146,6 +146,11 @@ public class Game {
                 cust1.drawFood();
                 cust1.pay();
 
+                if(cust1.leave()){
+                    game.window.clear();
+                    board.drawBoard();
+                    continue;
+                }
             }
             cust1.updateHappiness();
             game.displayTime();
