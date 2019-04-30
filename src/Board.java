@@ -13,7 +13,7 @@ public class Board {
         game.getWindow().filledRectangle(50, 50, 50, 50);
         game.getWindow().setPenColor(240, 200, 81);
         game.getWindow().filledRectangle(50, 90, 50, 10);
-        game.getWindow().picture(50, 90, "chef.png", 20, 20);
+        game.getWindow().picture(50, 90, "images/chef.png", 20, 20);
         game.getWindow().setPenColor(40, 96, 109);
         game.getWindow().filledRectangle(50, 80, 50, 3);
         // Kitchen label

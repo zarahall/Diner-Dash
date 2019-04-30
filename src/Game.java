@@ -30,12 +30,12 @@ public class Game {
     public Draw getWindow() { return window; }
 
     public void setMenuItemList() {
-        menuItemList.add(new MenuItem(10.15, "Hamburger","hamburger.png"));
-        menuItemList.add(new MenuItem(6.99, "French Fries","fries.png"));
-        menuItemList.add(new MenuItem(9.99, "Chicken Caesar Salad","salad.png"));
-        menuItemList.add(new MenuItem(3.95, "Lemonade", "lemonade.png"));
-        menuItemList.add(new MenuItem(6.45, "Key Lime Pie","keyLimePie.png"));
-        menuItemList.add(new MenuItem(7.15, "Cheese Pizza Slice","pizza.png"));
+        menuItemList.add(new MenuItem(10.15, "Hamburger", "images/hamburger.png"));
+        menuItemList.add(new MenuItem(6.99, "French Fries", "images/fries.png"));
+        menuItemList.add(new MenuItem(9.99, "Chicken Caesar Salad", "images/salad.png"));
+        menuItemList.add(new MenuItem(3.95, "Lemonade", "images/lemonade.png"));
+        menuItemList.add(new MenuItem(6.45, "Key Lime Pie", "images/keyLimePie.png"));
+        menuItemList.add(new MenuItem(7.15, "Cheese Pizza Slice", "images/pizza.png"));
     }
 
     public MenuItem getMenuItem(int index) { return menuItemList.get(index); }
@@ -111,7 +111,7 @@ public class Game {
         Game game = new Game();
         Board board = new Board(game);
         board.drawBoard();
-        Customer cust1 = new Customer("green.png", game,15,15,15,20);
+        Customer cust1 = new Customer("images/green.png", game,15,15,15,20);
         cust1.drawInLine(15,20);
         game.add(cust1);
 
