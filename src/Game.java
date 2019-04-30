@@ -11,6 +11,7 @@ public class Game {
     private long startTime;
     private long elapsedTime;
     private GameListener listener;
+    private double totalMoney;
 
     public Game(){
         window = new Draw("Diner Dash");
@@ -25,6 +26,7 @@ public class Game {
         window.addListener(listener);
         startTime = System.currentTimeMillis();
         elapsedTime = 0;
+        totalMoney = 0;
     }
 
     public Draw getWindow() { return window; }
@@ -39,6 +41,10 @@ public class Game {
     }
 
     public MenuItem getMenuItem(int index) { return menuItemList.get(index); }
+
+    public void addMoney(double m){
+        totalMoney += m;
+    }
 
     public Table selectTableAt(double x, double y) {
         Table tableClicked = null;
@@ -95,6 +101,16 @@ public class Game {
         window.text(90, 90, 180-updateTime()+"");
     }
 
+    public void displayMoney() {
+        window.setPenColor(255, 255, 255);
+        window.filledRectangle(90, 96, 4, 2);
+        Font gameFont = new Font("Dialog", Font.PLAIN, 15);
+        window.setFont(gameFont);
+        window.setPenColor(Color.black);
+        window.text(90, 96, "$"+totalMoney);
+    }
+
+
     public GameListener getListener(){
         return listener;
     }
@@ -133,6 +149,7 @@ public class Game {
             }
             cust1.updateHappiness();
             game.displayTime();
+            game.displayMoney();
             game.window.show();
 
         }

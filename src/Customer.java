@@ -21,6 +21,7 @@ public class Customer {
     private boolean foodReady;
     private MenuItem order;
     private boolean hasOrdered;
+    private boolean hasPaid;
 
     private double charge;
 
@@ -46,6 +47,7 @@ public class Customer {
         readyForOrder = false;
         foodReady = false;
         hasOrdered = false;
+        hasPaid = false;
     }
 
     public void updateHappiness(){
@@ -132,6 +134,11 @@ public class Customer {
                 table.drawMoney();
                 calcTip();
                 double charge = order.getPrice() + tip;
+                if(!hasPaid) {
+                    game.addMoney(charge);
+                    hasPaid = true;
+                }
+
             }
         }
     }
