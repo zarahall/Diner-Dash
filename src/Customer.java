@@ -100,7 +100,7 @@ public class Customer {
     public void drawaAtTable() {
         x = table.getX();
         y = table.getY();
-        game.getWindow().picture(x, y - 7, pictureFileName, width, height);
+        game.getWindow().picture(x, y - 12, pictureFileName, width, height);
         table.drawMenu();
     }
     public MenuItem order() {
@@ -111,16 +111,15 @@ public class Customer {
 
     public void orderFood(){
         long seconds = table.updateFoodTime();
-        System.out.println(seconds);
         if(seconds>=5){
             order = order();
-            foodReady = true;
-            game.getListener().setOrderTaken(false);
+            table.setIsFood(true);
+            table.setOrderTaken(false);
         }
     }
 
     public void drawFood(){
-        if(foodReady){
+        if(table.getIsFood()){
             table.drawFood(order);
         }
     }

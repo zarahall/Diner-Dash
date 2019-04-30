@@ -13,6 +13,8 @@ public class Table {
     private Game game;
     private boolean readyToOrder;
     private long foodStartTime;
+    private boolean orderTaken;
+    private boolean isFood;
 
     //x and y coordinates of the table
     private int x,y;
@@ -33,6 +35,8 @@ public class Table {
         this.hasCustomers = false;
         this.num = num;
         readyToOrder = false;
+        orderTaken = false;
+        isFood = false;
     }
 
     public int getX() { return x; }
@@ -55,7 +59,7 @@ public class Table {
     public void setSelected(boolean selected) { isSelected = selected; }
 
     public void drawMenu() {
-        if(!game.getListener().isOrderTaken()) {
+        if(!(isOrderTaken() || isFood)) {
             game.getWindow().setPenColor(221, 206, 217);
             game.getWindow().filledRectangle(x - 7, y + 4, 2, 3);
             game.getWindow().setPenColor(Color.BLACK);
@@ -67,14 +71,6 @@ public class Table {
 
     public void readyToOrder() {
         readyToOrder = true;
-        game.getWindow().setPenColor(Color.green);
-        game.getWindow().filledRectangle(x+7, y+6, 3, 3);
-        game.getWindow().setPenColor(Color.black);
-        Font font = new Font("Dialog", Font.PLAIN, 11);
-        game.getWindow().setFont(font);
-        game.getWindow().text(x+7, y+6.5, "Ready to");
-        game.getWindow().text(x+7, y+5, "order");
-
     }
 
     public void startFoodTimer(){
@@ -91,9 +87,19 @@ public class Table {
         return readyToOrder;
     }
 
+    public void drawReadyToOrder(){
+        game.getWindow().setPenColor(Color.green);
+        game.getWindow().filledRectangle(x+7, y+6, 3, 3);
+        game.getWindow().setPenColor(Color.black);
+        Font font = new Font("Dialog", Font.PLAIN, 11);
+        game.getWindow().setFont(font);
+        game.getWindow().text(x+7, y+6.5, "Ready to");
+        game.getWindow().text(x+7, y+5, "order");
+    }
+
     public void draw() {
         int y2 = y+10;
-        game.getWindow().setPenColor(Color.gray);
+        game.getWindow().setPenColor(31,31,31);
         game.getWindow().filledRectangle(x, y, width/2.0, height/2.0);
         game.getWindow().setPenColor(Color.BLACK);
         game.getWindow().line(x, y2, x, y+3);
@@ -107,8 +113,23 @@ public class Table {
     }
 
     public void drawFood(MenuItem food){
-        game.getWindow().picture(x,y,food.getFileName(),5,5);
+        game.getWindow().picture(x,y,food.getFileName(),10,10);
     }
+    public boolean isOrderTaken(){
+        return orderTaken;
+    }
+
+    public void setOrderTaken(boolean b){
+        orderTaken = b;
+    }
+
+    public void setIsFood(boolean i){
+        isFood = i;
+    }
+    public boolean getIsFood(){
+         return isFood;
+    }
+
 
     public void tableText() {
         Font gameFont = new Font("Dialog", Font.PLAIN, 30);

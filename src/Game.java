@@ -123,7 +123,7 @@ public class Game {
                 cust1.updateTime();
                 if (cust1.isReadyForOrder()) {
                     cust1.getTable().readyToOrder();
-                    if(game.listener.isOrderTaken()){
+                    if(cust1.getTable().isOrderTaken()){
                         cust1.orderFood();
                     }
                     //cust1.orderFood();
