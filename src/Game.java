@@ -128,6 +128,8 @@ public class Game {
                     }
                 }
                 cust1.drawFood();
+                cust1.pay();
+
             }
             cust1.updateHappiness();
             game.displayTime();

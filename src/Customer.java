@@ -20,6 +20,7 @@ public class Customer {
     private boolean readyForOrder;
     private boolean foodReady;
     private MenuItem order;
+    private boolean hasOrdered;
 
     private double charge;
 
@@ -44,6 +45,7 @@ public class Customer {
         this.game = game;
         readyForOrder = false;
         foodReady = false;
+        hasOrdered = false;
     }
 
     public void updateHappiness(){
@@ -115,7 +117,22 @@ public class Customer {
         if(seconds>=5){
             order = order();
             table.setIsFood(true);
+            table.startEatingTimer();
             table.setOrderTaken(false);
+            hasOrdered = true;
+        }
+    }
+
+    public void pay(){
+        if(hasOrdered) {
+            long seconds = table.updateEatingTime();
+            if (seconds >= 5) {
+                table.setMoney(true);
+                table.setIsFood(false);
+                table.drawMoney();
+                calcTip();
+                double charge = order.getPrice() + tip;
+            }
         }
     }
 

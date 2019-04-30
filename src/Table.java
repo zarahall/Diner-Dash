@@ -17,6 +17,7 @@ public class Table {
     private boolean isFood;
     private boolean preparingFood;
     private long  eatingStartTime;
+    private boolean isMoney;
 
     //x and y coordinates of the table
     private int x,y;
@@ -48,7 +49,7 @@ public class Table {
 
     public int getTableNum() { return tableNum; }
 
-    public boolean gatHasCustomers() { return hasCustomers; }
+    public boolean getHasCustomers() { return hasCustomers; }
 
     public boolean containsPoint(double x, double y) {
         if(x < this.x+(width/2.0) && x > this.x-(width/2.0)){
@@ -62,7 +63,7 @@ public class Table {
     public void setSelected(boolean selected) { isSelected = selected; }
 
     public void drawMenu() {
-        if(!(isOrderTaken() || isFood)) {
+        if(!(isOrderTaken() || isFood || isMoney)) {
             game.getWindow().setPenColor(221, 206, 217);
             game.getWindow().filledRectangle(x - 7, y + 4, 2, 3);
             game.getWindow().setPenColor(Color.BLACK);
@@ -148,6 +149,10 @@ public class Table {
         }
     }
 
+    public void drawMoney(){
+        game.getWindow().picture(x,y,"images/bill.png",15,12);
+    }
+
     public void setIsFood(boolean i){
         isFood = i;
     }
@@ -158,6 +163,8 @@ public class Table {
     public boolean getPreparingFood(){
         return preparingFood;
     }
+
+    public void setMoney(boolean m){ isMoney = m;}
 
 
     public void tableText() {
