@@ -30,12 +30,12 @@ public class Game {
     public Draw getWindow() { return window; }
 
     public void setMenuItemList() {
-        menuItemList.add(new MenuItem(10.15, "Hamburger"));
-        menuItemList.add(new MenuItem(6.99, "French Fries"));
-        menuItemList.add(new MenuItem(9.99, "Chicken Caesar Salad"));
-        menuItemList.add(new MenuItem(3.95, "Lemonade"));
-        menuItemList.add(new MenuItem(6.45, "Key Lime Pie"));
-        menuItemList.add(new MenuItem(7.15, "Cheese Pizza Slice"));
+        menuItemList.add(new MenuItem(10.15, "Hamburger","hamburger.png"));
+        menuItemList.add(new MenuItem(6.99, "French Fries","fries.png"));
+        menuItemList.add(new MenuItem(9.99, "Chicken Caesar Salad","salad.png"));
+        menuItemList.add(new MenuItem(3.95, "Lemonade", "lemonade.png"));
+        menuItemList.add(new MenuItem(6.45, "Key Lime Pie","keyLimePie.png"));
+        menuItemList.add(new MenuItem(7.15, "Cheese Pizza Slice","pizza.png"));
     }
 
     public MenuItem getMenuItem(int index) { return menuItemList.get(index); }
@@ -95,6 +95,10 @@ public class Game {
         window.text(90, 90, 180-updateTime()+"");
     }
 
+    public GameListener getListener(){
+        return listener;
+    }
+
     /** Adds given portal to this window. */
     public void add(Customer c) { customersList.add(c); }
 
@@ -120,18 +124,19 @@ public class Game {
                 if (cust1.isReadyForOrder()) {
                     cust1.getTable().readyToOrder();
                     if(game.listener.isOrderTaken()){
-                        System.out.println("h");
-                       // cust1.orderFood();
-                        game.listener.setOrderTaken(false);
+                        cust1.orderFood();
                     }
-                    cust1.orderFood();
+                    //cust1.orderFood();
                 }
+                cust1.drawFood();
+
             }
             cust1.updateHappiness();
             game.displayTime();
             game.window.show();
 
         }
+
 
 
     }

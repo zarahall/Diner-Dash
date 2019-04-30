@@ -18,7 +18,8 @@ public class Customer {
     private long orderStartTime;
     private long orderTime;
     private boolean readyForOrder;
-
+    private boolean foodReady;
+    private MenuItem order;
 
     private double charge;
 
@@ -42,6 +43,7 @@ public class Customer {
         elapsedTime = 0;
         this.game = game;
         readyForOrder = false;
+        foodReady = false;
     }
 
     public void updateHappiness(){
@@ -108,27 +110,18 @@ public class Customer {
     }
 
     public void orderFood(){
-        if(table.updateFoodTime()>=5){
-            MenuItem food = order();
-            if(food.getName().equals("Hamburger")){
-                table.drawFood("hamburger.png");
-            }
-            if(food.getName().equals("French Fries")){
-                table.drawFood("fries.png");
-            }
-            if(food.getName().equals("Key Lime Pie")){
-                table.drawFood("keyLimePie.png");
-            }
-            if(food.getName().equals("Lemonade")){
-                table.drawFood("lemonade.png");
-            }
-            if(food.getName().equals("Chicken Caesar Salad")){
-                table.drawFood("salad.png");
-            }
-            if(food.getName().equals("Cheese Pizza Slice")){
-                table.drawFood("pizza.png");
-            }
+        long seconds = table.updateFoodTime();
+        System.out.println(seconds);
+        if(seconds>=5){
+            order = order();
+            foodReady = true;
+            game.getListener().setOrderTaken(false);
+        }
+    }
 
+    public void drawFood(){
+        if(foodReady){
+            table.drawFood(order);
         }
     }
 

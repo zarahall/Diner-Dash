@@ -55,12 +55,14 @@ public class Table {
     public void setSelected(boolean selected) { isSelected = selected; }
 
     public void drawMenu() {
-        game.getWindow().setPenColor(221, 206, 217);
-        game.getWindow().filledRectangle(x-7, y+4, 2, 3);
-        game.getWindow().setPenColor(Color.BLACK);
-        Font font = new Font("Dialog", Font.PLAIN, 11);
-        game.getWindow().setFont(font);
-        game.getWindow().text(x-7, y+6, "Menu");
+        if(!game.getListener().isOrderTaken()) {
+            game.getWindow().setPenColor(221, 206, 217);
+            game.getWindow().filledRectangle(x - 7, y + 4, 2, 3);
+            game.getWindow().setPenColor(Color.BLACK);
+            Font font = new Font("Dialog", Font.PLAIN, 11);
+            game.getWindow().setFont(font);
+            game.getWindow().text(x - 7, y + 6, "Menu");
+        }
     }
 
     public void readyToOrder() {
@@ -104,8 +106,8 @@ public class Table {
         tableText();
     }
 
-    public void drawFood(String filename){
-        game.getWindow().picture(x,y,filename);
+    public void drawFood(MenuItem food){
+        game.getWindow().picture(x,y,food.getFileName(),5,5);
     }
 
     public void tableText() {
