@@ -50,6 +50,10 @@ public class Customer {
         hasPaid = false;
     }
 
+    public int getX(){ return x;}
+    public int getY(){ return y;}
+
+
     public void updateHappiness(){
         elapsedTime = System.currentTimeMillis() - startTime;
         long secondsElapsed = elapsedTime / 1000;
@@ -164,5 +168,9 @@ public class Customer {
 
     public boolean gethasPaid(){
         return hasPaid;
+    }
+
+    public boolean setHasPaid(boolean h){
+        return hasPaid = h;
     }
 }

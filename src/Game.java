@@ -128,31 +128,40 @@ public class Game {
         Board board = new Board(game);
         board.drawBoard();
         Customer cust1 = new Customer("images/green.png", game,15,15,15,20);
+      //  Customer cust2 = new Customer("images/green.png", game,15,15,15,35);
         cust1.drawInLine(15,20);
+      //  cust2.drawInLine(15,35);
         game.add(cust1);
+      //  game.add(cust2);
 
         while(true){
-            if(cust1.getTable()!=null){
-                game.window.clear();
-                board.drawBoard();
-                cust1.drawaAtTable();
-                cust1.updateTime();
-                if (cust1.isReadyForOrder()) {
-                    cust1.getTable().readyToOrder();
-                    if(cust1.getTable().isOrderTaken()){
-                        cust1.orderFood();
+            game.window.clear();
+            board.drawBoard();
+            for(Customer c: game.customersList) {
+                if (c.getTable() != null) {
+                    c.drawaAtTable();
+                    c.updateTime();
+                    if (c.isReadyForOrder()) {
+                        c.getTable().readyToOrder();
+                        if (c.getTable().isOrderTaken()) {
+                            c.orderFood();
+                        }
                     }
-                }
-                cust1.drawFood();
-                cust1.pay();
+                    c.drawFood();
+                    c.pay();
 
-                if(cust1.leave()){
-                    game.window.clear();
-                    board.drawBoard();
-                    continue;
+                    if (c.leave()) {
+                        game.window.clear();
+                        board.drawBoard();
+                        c = new Customer("images/green.png", game,15,15,15,20);
+                      //  c.drawInLine(15,20);
+                      //  continue;
+                    }
+                }else if(!c.gethasPaid()){
+                    c.drawInLine(c.getX(),c.getY());
                 }
+                cust1.updateHappiness();
             }
-            cust1.updateHappiness();
             game.displayTime();
             game.displayMoney();
             game.window.show();

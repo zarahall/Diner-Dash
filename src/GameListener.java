@@ -55,12 +55,14 @@ public class GameListener implements DrawListener {
                 tableClicked.setOrderTaken(true);
             }
 
+
+            if(tableClicked.hasMoney()){
+                tableClicked.setMoney(false);
+                tableClicked.setHasCustomers(false);
+            }
+
         }
 
-        if(tableClicked.hasMoney()){
-            tableClicked.setMoney(false);
-            tableClicked.setHasCustomers(false);
-        }
 
     }
 
